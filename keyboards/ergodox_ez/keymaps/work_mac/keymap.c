@@ -53,6 +53,13 @@
 #define FWD_WORD LALT(KC_RIGHT)
 #define BK_WORD LALT(KC_LEFT)
 
+#define PLAY_PAUSE KC_MEDIA_PLAY_PAUSE
+#define PREV_TRACK KC_MEDIA_PREV_TRACK
+#define NEXT_TRACK KC_MEDIA_NEXT_TRACK
+#define VOL_UP KC_AUDIO_VOL_UP
+#define VOL_DOWN KC_AUDIO_VOL_DOWN
+#define MUTE KC_AUDIO_MUTE
+
 // TODO verify correctness and then use these suckers
 #define SYM(kc) LT(1,kc)
 #define ARR(kc) LT(2,kc)
@@ -105,16 +112,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                     KC_TRNS, /**/ KC_TRNS,
                                                                                  KC_TRNS,  KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
   ),
-  // MEDIA ::  media controls (and a few dangling alt+ shortcuts, since those were originally defined in this layer)
+  // MEDIA ::  media controls (TODO make a new mouse layer)
   [3] = LAYOUT_ergodox_pretty(
-    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,               /**/                KC_TRNS,        ALT_T(KC_6),   ALT_T(KC_7),    ALT_T(KC_8), ALT_T(KC_9),       KC_TRNS,        RESET,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,                 /**/                KC_TRNS,        KC_MS_BTN1,    KC_MS_BTN2,     KC_MS_WH_UP, KC_MS_WH_RIGHT,    KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_ESCAPE,    KC_TRNS,        DLT_WORD,     KC_TRNS,      KC_TRNS,                           /**/                                KC_MS_LEFT,    KC_MS_DOWN,     KC_MS_UP,    KC_MS_RIGHT,       KC_TRNS,        KC_MEDIA_PLAY_PAUSE,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,                 /**/                KC_TRNS,        KC_MS_WH_LEFT, KC_MS_WH_DOWN,  KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_TRNS,KC_TRNS,
-    KC_TRNS,           WEBUSB_PAIR,  KC_TRNS,        KC_TRNS,      KC_TRNS,                                         /**/                                               KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,KC_TRNS,        KC_TRNS,
-                                                                                           KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
-                                                                                                           KC_TRNS, /**/ KC_TRNS,
-                                                                           GUI_T(KC_TAB), GUI_T(KC_GRAVE), KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_WWW_BACK
+    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6),   ALT_T(KC_7),    ALT_T(KC_8), ALT_T(KC_9),       KC_TRNS,        RESET,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    KC_TRNS,        KC_MS_BTN1,    KC_MS_BTN2,     KC_MS_WH_UP, KC_MS_WH_RIGHT,    KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                    /**/                    KC_MS_LEFT,    PREV_TRACK,     VOL_DOWN,    VOL_UP,            NEXT_TRACK,     PLAY_PAUSE,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    KC_TRNS,        KC_MS_WH_LEFT, KC_MS_WH_DOWN,  PREV_TRACK,  NEXT_TRACK,        KC_TRNS,        KC_TRNS,
+    KC_TRNS,           WEBUSB_PAIR,  KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                   VOL_UP,         VOL_DOWN,    MUTE,              KC_TRNS,        KC_TRNS,
+                                                                                    KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                    KC_TRNS, /**/ KC_TRNS,
+                                                                    GUI_T(KC_TAB), GUI_T(KC_GRAVE), KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_WWW_BACK
   ),
 };
 
