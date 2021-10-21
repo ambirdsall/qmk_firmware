@@ -50,6 +50,8 @@
 
 #define SPACEHAMMER LCTL(LGUI(LALT(KC_SPACE)))
 #define DLT_WORD LALT(KC_DELETE)
+#define FWD_WORD LALT(KC_RIGHT)
+#define BK_WORD LALT(KC_LEFT)
 
 // TODO verify correctness and then use these suckers
 #define SYM(kc) LT(1,kc)
@@ -72,42 +74,42 @@ enum custom_keycodes {
  */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_GRAVE,          KC_1,         KC_2,           KC_3,         KC_4,         KC_5,     ALT_T(KC_LEFT),   /**/    RALT_T(KC_RIGHT), KC_6,        KC_7,         KC_8,         KC_9,         KC_0,              KC_BSPACE,
-    ARR(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,     TT(1),            /**/    TT(1),            KC_Y,        KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLASH,
-    CTL_T(KC_ESCAPE),  CTL_T(KC_A),  ALT_T(KC_S),    GUI_T(KC_D),  SFT_T(KC_F),  KC_G,                       /**/                      KC_H,        SFT_T(KC_J),  GUI_T(KC_K),  ALT_T(KC_L),  CTL_T(KC_SCOLON),  KC_QUOTE,
-    KC_LSHIFT,         MEDIA(KC_Z),  KC_X,           ARR(KC_C),    SYM(KC_V),    KC_B,     SPACEHAMMER,      /**/    SPACEHAMMER,      KC_N,        SYM(KC_M),    ARR(KC_COMMA),KC_DOT,       MEDIA(KC_SLASH),   KC_RSHIFT,
-    MEDIA(KC_GRAVE),   KC_QUOTE,     WEBUSB_PAIR,    KC_LEFT,      KC_RIGHT,                                 /**/                                   KC_NO,        KC_DOWN,      KC_LBRACKET,  KC_RBRACKET,       MO(1),
+    KC_GRAVE,          KC_1,         KC_2,           KC_3,         KC_4,         KC_5,     ALT_T(KC_LEFT),   /**/    RALT_T(KC_RIGHT), KC_6,      KC_7,         KC_8,         KC_9,         KC_0,              KC_BSPACE,
+    ARR(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,     TT(1),            /**/    TT(1),            KC_Y,      KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLASH,
+    CTL_T(KC_ESCAPE),  CTL_T(KC_A),  ALT_T(KC_S),    GUI_T(KC_D),  SFT_T(KC_F),  KC_G,                       /**/                      KC_H,      SFT_T(KC_J),  GUI_T(KC_K),  ALT_T(KC_L),  CTL_T(KC_SCOLON),  KC_QUOTE,
+    KC_LSHIFT,         MEDIA(KC_Z),  KC_X,           ARR(KC_C),    SYM(KC_V),    KC_B,     SPACEHAMMER,      /**/    SPACEHAMMER,      KC_N,      SYM(KC_M),    ARR(KC_COMMA),KC_DOT,       MEDIA(KC_SLASH),   KC_RSHIFT,
+    MEDIA(KC_GRAVE),   KC_QUOTE,     WEBUSB_PAIR,    KC_LEFT,      KC_RIGHT,                                 /**/                                 KC_NO,        KC_DOWN,      KC_LBRACKET,  KC_RBRACKET,       MO(1),
                                                                                    ALT_T(KC_LEFT), KC_RIGHT, /**/ KC_DOWN, MO(1),
                                                                                                      KC_END, /**/ KC_PGUP,
                                                           GUI_T(KC_SPACE), CTL_T(KC_ENTER), ALT_T(KC_MINUS), /**/ RALT_T(KC_EQUAL), CTL_T(KC_ENTER), GUI_T(KC_SPACE)
   ),
   // SYM :: symbol layer
   [1] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,    KC_TRNS,          /**/    KC_TRNS,        KC_F6,         KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
-    KC_TRNS,           KC_EXLM,      KC_AT,          KC_LCBR,      KC_RCBR,      KC_PIPE,  KC_TRNS,          /**/    KC_TRNS,        KC_UP,         KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
-    KC_TRNS,           KC_HASH,      KC_DLR,         KC_LPRN,      KC_RPRN,      KC_MINUS,                   /**/                    KC_DOWN,       KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
-    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LBRACKET,  KC_RBRACKET,  KC_EQUAL, KC_TRNS,          /**/    KC_TRNS,        KC_AMPR,       KC_1,         KC_2,         KC_3,         KC_BSLASH,         KC_TRNS,
-    KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                   KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
+    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,    KC_TRNS,          /**/    KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
+    KC_TRNS,           KC_EXLM,      KC_AT,          KC_LCBR,      KC_RCBR,      KC_PIPE,  KC_TRNS,          /**/    KC_TRNS,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
+    KC_TRNS,           KC_HASH,      KC_DLR,         KC_LPRN,      KC_RPRN,      KC_MINUS,                   /**/                    KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
+    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LBRACKET,  KC_RBRACKET,  KC_EQUAL, KC_TRNS,          /**/    KC_TRNS,        KC_AMPR,     KC_1,         KC_2,         KC_3,         KC_BSLASH,         KC_TRNS,
+    KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                 KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
                                                                                            KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS,
                                                                                                     KC_TRNS, /**/ KC_TRNS,
                                                                                 KC_MINUS, KC_EQUAL, KC_TRNS, /**/ KC_TRNS, RGB_HUD, RGB_HUI
   ),
   // ARR :: arrows and navigation
   [2] = LAYOUT_ergodox_pretty(
-    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6),    ALT_T(KC_7), ALT_T(KC_8), ALT_T(KC_9),     KC_F3,          KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    TO(3),          ALT_T(KC_LEFT), KC_PGDOWN,   KC_PGUP,     ALT_T(KC_RIGHT), KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                    /**/                    KC_LEFT,        KC_DOWN,     KC_UP,       KC_RIGHT,        KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,        KC_TRNS,     KC_TRNS,     KC_TRNS,         KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                    KC_TRNS,     KC_TRNS,     KC_TRNS,         KC_TRNS,        KC_TRNS,
+    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6), ALT_T(KC_7), ALT_T(KC_8), ALT_T(KC_9),   KC_F3,          KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    TO(3),          BK_WORD,     KC_PGDOWN,   KC_PGUP,     FWD_WORD,      KC_TRNS,        KC_TRNS,
+    ALT_T(KC_BSPACE),  KC_TRNS,      KC_TRNS,        DLT_WORD,     FWD_WORD,     KC_TRNS,                    /**/                    KC_LEFT,     KC_DOWN,     KC_UP,       KC_RIGHT,      KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      BK_WORD,  KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                 KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
                                                                                     KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
                                                                                                     KC_TRNS, /**/ KC_TRNS,
                                                                                  KC_TRNS,  KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
   ),
-  // MEDIA ::  media controls and alt+ shortcuts (TODO: make arrows symmetrical & extract the alt+ shortcuts to their own layer)
+  // MEDIA ::  media controls (and a few dangling alt+ shortcuts, since those were originally defined in this layer)
   [3] = LAYOUT_ergodox_pretty(
     KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,               /**/                KC_TRNS,        ALT_T(KC_6),   ALT_T(KC_7),    ALT_T(KC_8), ALT_T(KC_9),       KC_TRNS,        RESET,
     KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,                 /**/                KC_TRNS,        KC_MS_BTN1,    KC_MS_BTN2,     KC_MS_WH_UP, KC_MS_WH_RIGHT,    KC_TRNS,        KC_TRNS,
-    ALT_T(KC_BSPACE),  KC_ESCAPE,    KC_TRNS,        DLT_WORD,     KC_TRNS,      KC_TRNS,                           /**/                                KC_MS_LEFT,    KC_MS_DOWN,     KC_MS_UP,    KC_MS_RIGHT,       KC_TRNS,        KC_MEDIA_PLAY_PAUSE,
+    KC_TRNS,           KC_ESCAPE,    KC_TRNS,        DLT_WORD,     KC_TRNS,      KC_TRNS,                           /**/                                KC_MS_LEFT,    KC_MS_DOWN,     KC_MS_UP,    KC_MS_RIGHT,       KC_TRNS,        KC_MEDIA_PLAY_PAUSE,
     KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,                 /**/                KC_TRNS,        KC_MS_WH_LEFT, KC_MS_WH_DOWN,  KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_TRNS,KC_TRNS,
     KC_TRNS,           WEBUSB_PAIR,  KC_TRNS,        KC_TRNS,      KC_TRNS,                                         /**/                                               KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN,KC_AUDIO_MUTE,KC_TRNS,        KC_TRNS,
                                                                                            KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
