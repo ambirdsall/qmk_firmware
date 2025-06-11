@@ -63,6 +63,7 @@
 #define SYM(kc) LT(1,kc)
 #define NAV(kc) LT(2,kc)
 #define EMOU(kc) LT(3,kc)
+#define PRO(kc) LT(4,kc)
 
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
@@ -87,40 +88,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     EMOU(KC_GRAVE),    KC_QUOTE,     WEBUSB_PAIR,    KC_LEFT,      KC_RIGHT,                                 /**/                                 KC_UP,        KC_DOWN,      KC_LBRACKET,  KC_RBRACKET,       MO(1),
                                                                                    ALT_T(KC_LEFT), KC_RIGHT, /**/ KC_DOWN, MO(1),
                                                                                                      KC_END, /**/ KC_PGUP,
-                                                            SYM(KC_SPACE),   NAV(KC_ENTER), ALT_T(KC_MINUS), /**/ RALT_T(KC_EQUAL),   NAV(KC_ENTER),   SYM(KC_SPACE)
+                                                            PRO(KC_SPACE),   NAV(KC_ENTER), ALT_T(KC_MINUS), /**/ RALT_T(KC_EQUAL),   NAV(KC_ENTER),   SYM(KC_SPACE)
   ),
   // SYM :: symbols to the left; numpad to the right
   [1] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,    KC_TRNS,          /**/    KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
-    KC_TRNS,           KC_EXLM,      KC_AT,          KC_LBRACKET,  KC_RBRACKET,  KC_PIPE,  KC_TRNS,          /**/    KC_TRNS,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
-    KC_TRNS,           KC_HASH,      KC_DLR,         KC_LCBR,      KC_RCBR,      KC_MINUS,                   /**/                    KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
-    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LPRN,      KC_RPRN,      KC_EQUAL, KC_TRNS,          /**/    KC_TRNS,        KC_AMPR,     KC_1,         KC_2,         KC_3,         KC_BSLASH,         KC_TRNS,
-    KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                 KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
-                                                                                           KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS,
-                                                                                                    KC_TRNS, /**/ KC_TRNS,
-                                                                                KC_MINUS, KC_EQUAL, KC_TRNS, /**/ KC_TRNS, RGB_HUD, RGB_HUI
+    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,     KC_TRNS,          /**/    KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
+    KC_TRNS,           KC_EXLM,      KC_AT,          KC_LBRACKET,  KC_RBRACKET,  KC_PIPE,   KC_TRNS,          /**/    KC_TRNS,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
+    KC_TRNS,           KC_HASH,      KC_DLR,         KC_LCBR,      KC_RCBR,      KC_MINUS,                    /**/                    KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
+    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LPRN,      KC_RPRN,      KC_EQUAL,  KC_TRNS,          /**/    KC_TRNS,        KC_AMPR,     KC_1,         KC_2,         KC_3,         KC_BSLASH,         KC_TRNS,
+    KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                 KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
+                                                                                            KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                     KC_TRNS, /**/ KC_TRNS,
+                                                                          SFT_T(KC_MINUS), KC_EQUAL, KC_TRNS, /**/ KC_TRNS, RGB_HUD, SFT_T(KC_UNDERSCORE)
   ),
   // NAV :: arrows and navigation
   [2] = LAYOUT_ergodox_pretty(
-    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6), ALT_T(KC_7), ALT_T(KC_8), ALT_T(KC_9),   KC_F3,          A(KC_BSPACE),
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    TO(3),          BK_WORD,     KC_PGDOWN,   KC_PGUP,     FWD_WORD,      KC_TRNS,        KC_TRNS,
-    ALT_T(KC_BSPACE),  KC_TRNS,      KC_TRNS,        DLT_WORD,     FWD_WORD,     KC_TRNS,                    /**/                    KC_LEFT,     KC_DOWN,     KC_UP,       KC_RIGHT,      KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      BK_WORD,  KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                 KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
-                                                                                    KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
-                                                                                                    KC_TRNS, /**/ KC_TRNS,
-                                                                                 KC_TRNS,  KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5), KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6), ALT_T(KC_7), ALT_T(KC_8), ALT_T(KC_9),   KC_F3,          A(KC_BSPACE),
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_TRNS,        /**/    TO(3),          BK_WORD,     KC_PGDOWN,   KC_PGUP,     FWD_WORD,      KC_TRNS,        KC_TRNS,
+    ALT_T(KC_BSPACE),  KC_TRNS,      KC_TRNS,        DLT_WORD,     FWD_WORD,     KC_TRNS,                     /**/                    KC_LEFT,     KC_DOWN,     KC_UP,       KC_RIGHT,      KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      BK_WORD,     KC_TRNS,        /**/    KC_TRNS,        KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                 KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
+                                                                                     KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                     KC_TRNS, /**/ KC_TRNS,
+                                                                                  KC_TRNS,  KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
   ),
   // EMOU :: emojis and mouse
   [3] = LAYOUT_ergodox_pretty(
-    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5),KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6),   ALT_T(KC_7),    ALT_T(KC_8), ALT_T(KC_9),       KC_TRNS,        RESET,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    KC_TRNS,        KC_MS_BTN1,    KC_MS_BTN2,     KC_MS_WH_UP, KC_MS_WH_RIGHT,    KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                    /**/                    KC_MS_LEFT,    PREV_TRACK,     VOL_DOWN,    VOL_UP,            NEXT_TRACK,     PLAY_PAUSE,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,          /**/    KC_TRNS,        KC_MS_WH_LEFT, KC_MS_WH_DOWN,  PREV_TRACK,  NEXT_TRACK,        KC_TRNS,        KC_TRNS,
-    KC_TRNS,           WEBUSB_PAIR,  KC_TRNS,        KC_TRNS,      KC_TRNS,                                  /**/                                   VOL_UP,         VOL_DOWN,    MUTE,              KC_TRNS,        KC_TRNS,
-                                                                                    KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+    KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5), KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6),   ALT_T(KC_7),    ALT_T(KC_8), ALT_T(KC_9),       KC_TRNS,        RESET,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_MS_BTN1,    KC_MS_BTN2,     KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                     /**/                    KC_MS_LEFT,    KC_MS_DOWN,     KC_MS_UP,    KC_MS_RIGHT,       NEXT_TRACK,     PLAY_PAUSE,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_MS_WH_LEFT, KC_MS_WH_DOWN,  KC_MS_WH_UP, KC_MS_WH_RIGHT,    KC_TRNS,        KC_TRNS,
+    KC_TRNS,           WEBUSB_PAIR,  KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                   VOL_UP,         VOL_DOWN,    MUTE,              KC_TRNS,        KC_TRNS,
+                                                                                     KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                     KC_TRNS, /**/ KC_TRNS,
+                                                                     GUI_T(KC_TAB), GUI_T(KC_GRAVE), KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_WWW_BACK
+  ),
+  // PRO :: "programming"? An alternate symbol layer, which may someday take over from SYM. Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
+  // TODO right hand???
+  [4] = LAYOUT_ergodox_pretty(
+    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_SCOLON,KC_TRNS,          /**/    KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
+    KC_TILD,           KC_LCBR,      KC_DQT,         KC_GRAVE,     KC_RCBR,      KC_QUES,  KC_HOME,          /**/    KC_HOME,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
+    KC_HASH,           KC_CIRC,      KC_EQUAL,       KC_UNDERSCORE,KC_DOLLAR,    KC_ASTERISK,                /**/                    KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
+    KC_EXLM,           KC_LT,        KC_PIPE,        KC_MINUS,     KC_GT,        KC_SLASH, KC_END,           /**/    KC_END,         KC_AMPR,     KC_1,         KC_2,         KC_3,         KC_BSLASH,         KC_TRNS,
+    KC_TRNS,           KC_COMMA,     KC_AMPR,        KC_PLUS,      KC_SCOLON,                                /**/                                 KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
+                                                                                           KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS,
                                                                                                     KC_TRNS, /**/ KC_TRNS,
-                                                                    GUI_T(KC_TAB), GUI_T(KC_GRAVE), KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_WWW_BACK
+                                                                         SFT_T(KC_MINUS), KC_EQUAL, KC_TRNS, /**/ KC_TRNS, RGB_HUD, SFT_T(KC_UNDERSCORE)
   ),
 };
 
