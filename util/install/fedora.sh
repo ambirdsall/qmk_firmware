@@ -4,7 +4,7 @@ _qmk_install() {
     echo "Installing dependencies"
 
     . /etc/os-release
-    if [ "$VERSION_ID" == "39" ]; then
+    if [ "$VERSION_ID" == "42" ]; then
         sudo dnf $SKIP_PROMPT copr enable erovia/dfu-programmer
     fi
 
@@ -16,9 +16,9 @@ _qmk_install() {
         arm-none-eabi-newlib avrdude dfu-programmer dfu-util hidapi
 
     # Handle discrepancies between different Fedora versions
-    sudo dnf $SKIP_PROMPT install libusb-devel \
-        || sudo dnf $SKIP_PROMPT install libusb1-devel libusb-compat-0.1-devel \
-        || sudo dnf $SKIP_PROMPT install libusb0-devel
+    sudo dnf $SKIP_PROMPT install libusb-devel ||
+        sudo dnf $SKIP_PROMPT install libusb1-devel libusb-compat-0.1-devel ||
+        sudo dnf $SKIP_PROMPT install libusb0-devel
 
     python3 -m pip install --user -r $QMK_FIRMWARE_DIR/requirements.txt
 }
