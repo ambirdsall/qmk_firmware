@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+qmk compile -kb zsa/ergodox_ez -km ergodox
