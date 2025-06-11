@@ -48,7 +48,6 @@
 #define ES_BSLS_MAC ALGR(KC_6)
 #define BP_NDSH_MAC ALGR(KC_8)
 
-#define SPACEHAMMER LCTL(LGUI(LALT(KC_SPACE)))
 #define DLT_WORD LALT(KC_DELETE)
 #define FWD_WORD LALT(KC_RIGHT)
 #define BK_WORD LALT(KC_LEFT)
@@ -82,9 +81,9 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_GRAVE,          KC_1,         KC_2,           KC_3,         KC_4,         KC_5,     ALT_T(KC_LEFT),   /**/    RALT_T(KC_RIGHT), KC_6,      KC_7,         KC_8,         KC_9,         KC_0,              KC_BSPACE,
-    NAV(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,     TT(1),            /**/    TT(1),            KC_Y,      KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLASH,
+    NAV(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,     KC_PGHOME,        /**/    KC_PGUP,          KC_Y,      KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLASH,
     CTL_T(KC_ESCAPE),  CTL_T(KC_A),  ALT_T(KC_S),    GUI_T(KC_D),  SFT_T(KC_F),  KC_G,                       /**/                      KC_H,      SFT_T(KC_J),  GUI_T(KC_K),  ALT_T(KC_L),  CTL_T(KC_SCOLON),  KC_QUOTE,
-    KC_LSPO,           EMOU(KC_Z),   KC_X,           SYM(KC_C),    NAV(KC_V),    KC_B,     SPACEHAMMER,      /**/    SPACEHAMMER,      KC_N,      NAV(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    KC_RSPC,
+    KC_LSPO,           EMOU(KC_Z),   KC_X,           SYM(KC_C),    NAV(KC_V),    KC_B,     KC_PGEND,         /**/    KC_PGDN,          KC_N,      NAV(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    KC_RSPC,
     EMOU(KC_GRAVE),    KC_QUOTE,     WEBUSB_PAIR,    KC_LEFT,      KC_RIGHT,                                 /**/                                 KC_UP,        KC_DOWN,      KC_LBRACKET,  KC_RBRACKET,       MO(1),
                                                                                    ALT_T(KC_LEFT), KC_RIGHT, /**/ KC_DOWN, MO(1),
                                                                                                      KC_END, /**/ KC_PGUP,
