@@ -86,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [NAV_L] = LAYOUT_ergodox_pretty(
     KC_TRNS,           ALT_T(KC_1),  ALT_T(KC_2),    ALT_T(KC_3),  ALT_T(KC_4),  ALT_T(KC_5), KC_TRNS,        /**/    KC_TRNS,        ALT_T(KC_6), ALT_T(KC_7), ALT_T(KC_8), ALT_T(KC_9),   KC_F3,          A(KC_BSPC),
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_TRNS,        /**/    TO(3),          BK_WORD,     KC_PGDN,     KC_PGUP,     FWD_WORD,      KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_TRNS,        /**/    TO(3),          KC_HOME,     KC_PGDN,     KC_PGUP,     KC_END,        KC_TRNS,        KC_TRNS,
     ALT_T(KC_BSPC),    KC_TRNS,      KC_TRNS,        DLT_WORD,     FWD_WORD,     KC_TRNS,                     /**/                    KC_LEFT,     KC_DOWN,     KC_UP,       KC_RIGHT,      KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      BK_WORD,     KC_TRNS,        /**/    KC_TRNS,        KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      BK_WORD,     KC_TRNS,        /**/    KC_TRNS,        BK_WORD,     KC_TRNS,     KC_TRNS,     FWD_WORD,      KC_TRNS,        KC_TRNS,
     KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                 KC_TRNS,     KC_TRNS,     KC_TRNS,       KC_TRNS,        KC_TRNS,
                                                                                                               /**/
                                                                                      KC_TRNS,        KC_TRNS, /**/ KC_TRNS, KC_TRNS,
