@@ -52,13 +52,6 @@ enum custom_keycodes {
 };
 
 
-/*
- * some points of order:
- * 1) home row mods? home row mods.
- * 2) right home row "alt" sends left alt: this  is a funny side effect of my terminal emacs config,
- *    which reserves right alt for the macOS default of special character input and left alt for meta
- * 3) honestly only have two so far, just adding a third to restore default indentation lmao
- */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE_L] = LAYOUT_ergodox_pretty(
     KC_GRAVE,          KC_1,         KC_2,           KC_3,         KC_4,         KC_5,        ALT_T(KC_LEFT), /**/   RALT_T(KC_RIGHT), KC_6,      KC_7,         KC_8,         KC_9,         KC_0,              KC_BSPC,
@@ -106,7 +99,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // PRO :: "programming"? An alternate symbol layer I'm trying out, with hopes it will fully supercede SYM someday.
   // Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
-  // TODO right hand???
   [PRO_L] = LAYOUT_ergodox_pretty(
     KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_SCLN,  KC_TRNS,           /**/   KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
     KC_TILD,           KC_LCBR,      KC_DQT,         KC_GRAVE,     KC_RCBR,      KC_QUES,  KC_HOME,           /**/   KC_HOME,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
