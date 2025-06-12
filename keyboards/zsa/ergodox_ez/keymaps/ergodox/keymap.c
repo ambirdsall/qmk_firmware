@@ -33,20 +33,18 @@
 #define VOL_DOWN KC_AUDIO_VOL_DOWN
 #define MUTE KC_AUDIO_MUTE
 
-// TODO verify correctness and then use these suckers
-#define SYM(kc) LT(1,kc)
-#define NAV(kc) LT(2,kc)
-#define EMOU(kc) LT(3,kc)
-#define PRO(kc) LT(4,kc)
-
 enum layers {
-    BASE_L,
-    SYM_L,
-    NAV_L,
-    EMOU_L,
-    PRO_L,
+    BASE_L, // "Base layer" feels pretty self-explanatory, tbh
+    SYM_L,  // As does "Symbol layer" does what it says on the tin, but also offers a numpad
+    NAV_L,  // Because life is too short *not* to bake hardware support for H/J/K/L into a "Navigation layer"
+    EMOU_L, // ngl, the "Emoji layer" is half-baked *at best*. It doesn't even have emojis???
+    PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
 };
 
+#define SYM(kc) LT(SYM_L,kc)
+#define NAV(kc) LT(NAV_L,kc)
+#define EMOU(kc) LT(EMOU_L,kc)
+#define PRO(kc) LT(PRO_L,kc)
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
   HSV_86_255_128,
@@ -67,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NAV(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,        KC_HOME,        /**/   KC_PGUP,          KC_Y,      KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLS,
     CTL_T(KC_ESCAPE),  CTL_T(KC_A),  ALT_T(KC_S),    GUI_T(KC_D),  SFT_T(KC_F),  KC_G,                        /**/                     KC_H,      SFT_T(KC_J),  GUI_T(KC_K),  ALT_T(KC_L),  CTL_T(KC_SCLN),    KC_QUOTE,
     SC_LSPO,           EMOU(KC_Z),   KC_X,           SYM(KC_C),    NAV(KC_V),    KC_B,        KC_END,         /**/   KC_PGDN,          KC_N,      NAV(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    SC_RSPC,
-    EMOU(KC_GRAVE),    KC_QUOTE,     KC_PSCR,        KC_LEFT,      KC_RIGHT,                                  /**/                                KC_UP,        KC_DOWN,      KC_LBRC,      KC_RBRC,           MO(1),
+    EMOU(KC_GRAVE),    KC_QUOTE,     KC_PSCR,        KC_LEFT,      KC_RIGHT,                                  /**/                                KC_UP,        KC_DOWN,      KC_LBRC,      KC_RBRC,           MO(SYM_L),
                                                                                                               /**/
                                                                                    ALT_T(KC_LEFT), KC_RIGHT,  /**/ KC_DOWN, MO(SYM_L),
                                                                                                      KC_END,  /**/ KC_PGUP,
@@ -149,15 +147,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
       break;
-    case 5:
+    case VOL_L:
       ergodox_right_led_1_on();
       ergodox_right_led_3_on();
       break;
-    case 6:
+    case NUM_L:
       ergodox_right_led_2_on();
       ergodox_right_led_3_on();
       break;
-    case 7:
+    case FUN_L:
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
       ergodox_right_led_3_on();
