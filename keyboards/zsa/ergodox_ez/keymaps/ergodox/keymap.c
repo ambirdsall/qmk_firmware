@@ -39,12 +39,19 @@ enum layers {
     NAV_L,  // Because life is too short *not* to bake hardware support for H/J/K/L into a "Navigation layer"
     EMOU_L, // ngl, the "Emoji layer" is half-baked *at best*. It doesn't even have emojis???
     PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
+    VOL_L,  // the assumption behind naming this "Volume layer" is that those are the media control keys I'll use most
+    NUM_L,  // "Num{ber,pad} layer"
+    FUN_L,  // "Function [key] layer" is like a numpad, but for F1, F2, F3, et al
 };
 
 #define SYM(kc) LT(SYM_L,kc)
 #define NAV(kc) LT(NAV_L,kc)
 #define EMOU(kc) LT(EMOU_L,kc)
 #define PRO(kc) LT(PRO_L,kc)
+#define VOL(kc) LT(VOL_L,kc)
+#define NUM(kc) LT(NUM_L,kc)
+#define FUN(kc) LT(FUN_L,kc)
+
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
   HSV_86_255_128,
@@ -57,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,          KC_1,         KC_2,           KC_3,         KC_4,         KC_5,        ALT_T(KC_LEFT), /**/   RALT_T(KC_RIGHT), KC_6,      KC_7,         KC_8,         KC_9,         KC_0,              KC_BSPC,
     NAV(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,        KC_HOME,        /**/   KC_PGUP,          KC_Y,      KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLS,
     CTL_T(KC_ESCAPE),  CTL_T(KC_A),  ALT_T(KC_S),    GUI_T(KC_D),  SFT_T(KC_F),  KC_G,                        /**/                     KC_H,      SFT_T(KC_J),  GUI_T(KC_K),  ALT_T(KC_L),  CTL_T(KC_SCLN),    KC_QUOTE,
-    SC_LSPO,           EMOU(KC_Z),   KC_X,           SYM(KC_C),    NAV(KC_V),    KC_B,        KC_END,         /**/   KC_PGDN,          KC_N,      NAV(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    SC_RSPC,
+    SC_LSPO,           EMOU(KC_Z),   FUN(KC_X),      NUM(KC_C),    VOL(KC_V),    KC_B,        KC_END,         /**/   KC_PGDN,          KC_N,      PRO(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    SC_RSPC,
     EMOU(KC_GRAVE),    KC_QUOTE,     KC_PSCR,        KC_LEFT,      KC_RIGHT,                                  /**/                                KC_UP,        KC_DOWN,      KC_LBRC,      KC_RBRC,           MO(SYM_L),
                                                                                                               /**/
                                                                                    ALT_T(KC_LEFT), KC_RIGHT,  /**/ KC_DOWN, MO(SYM_L),
@@ -68,8 +75,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,       KC_TRNS,        /**/    KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
     KC_TRNS,           KC_EXLM,      KC_AT,          KC_LBRC,      KC_RBRC,      KC_PIPE,     KC_TRNS,        /**/    KC_TRNS,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
     KC_TRNS,           KC_HASH,      KC_DLR,         KC_LCBR,      KC_RCBR,      KC_MINUS,                    /**/                    KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
-    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LPRN,      KC_RPRN,      KC_EQUAL,    KC_TRNS,        /**/    KC_TRNS,        KC_AMPR,     KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
-    KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                 KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
+    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LPRN,      KC_RPRN,      KC_EQUAL,    KC_TRNS,        /**/    KC_TRNS,        KC_0,        KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
+    KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                 KC_DOT,       KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
                                                                                                               /**/
                                                                                             KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS,
                                                                                                      KC_TRNS, /**/ KC_TRNS,
@@ -100,15 +107,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // PRO :: "programming"? An alternate symbol layer I'm trying out, with hopes it will fully supercede SYM someday.
   // Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
   [PRO_L] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_SCLN,  KC_TRNS,           /**/   KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
-    KC_TILD,           KC_LCBR,      KC_DQT,         KC_GRAVE,     KC_RCBR,      KC_QUES,  KC_HOME,           /**/   KC_HOME,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
-    KC_HASH,           KC_CIRC,      KC_EQUAL,       KC_UNDERSCORE,KC_DOLLAR,    KC_ASTERISK,                 /**/                   KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
-    KC_EXLM,           KC_LT,        KC_PIPE,        KC_MINUS,     KC_GT,        KC_SLASH, KC_END,            /**/   KC_END,         KC_AMPR,     KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
-    KC_TRNS,           KC_COMMA,     KC_AMPR,        KC_PLUS,      KC_SCLN,                                   /**/                                KC_TRNS,      KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
+    KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_SCLN,  KC_TRNS,           /**/   KC_TRNS,        KC_F6,          KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
+    KC_TILD,           KC_LCBR,      KC_DQT,         KC_GRAVE,     KC_RCBR,      KC_QUES,  KC_HOME,           /**/   KC_HOME,        KC_UP,          KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
+    KC_HASH,           KC_CIRC,      KC_EQUAL,       KC_UNDERSCORE,KC_DOLLAR,    KC_ASTERISK,                 /**/                   KC_DOWN,        KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
+    KC_EXLM,           KC_LT,        KC_PIPE,        KC_MINUS,     KC_GT,        KC_SLASH, KC_END,            /**/   KC_END,         KC_0,           KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
+    KC_TRNS,           KC_COMMA,     KC_AMPR,        KC_PLUS,      KC_SCLN,                                   /**/                                   KC_DOT,       KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
                                                                                                               /**/
                                                                                            KC_TRNS, KC_TRNS,  /**/ KC_TRNS, KC_TRNS,
                                                                                                     KC_TRNS,  /**/ KC_TRNS,
                                                                          SFT_T(KC_MINUS), KC_EQUAL, KC_TRNS,  /**/ KC_TRNS, RGB_HUD, SFT_T(KC_UNDERSCORE)
+  ),
+  [VOL_L] = LAYOUT_ergodox_pretty(
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                     /**/                    KC_MPRV,       VOL_DOWN,       VOL_UP,      KC_MNXT,           KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_MUTE,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                   KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+                                                                                                              /**/
+                                                                                          KC_TRNS,   KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                     KC_TRNS, /**/ KC_TRNS,
+                                                                                   KC_MPLY, KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_MPLY
+  ),
+  [NUM_L] = LAYOUT_ergodox_pretty(
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_0,           KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_7,           KC_8,        KC_9,              KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                     /**/                    KC_TRNS,       KC_4,           KC_5,        KC_6,              KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_0,          KC_1,           KC_2,        KC_3,              KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                   KC_DOT,         KC_DOT,      KC_0,              KC_TRNS,        KC_TRNS,
+                                                                                                              /**/
+                                                                                          KC_TRNS,   KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                     KC_TRNS, /**/ KC_TRNS,
+                                                                                   KC_TRNS, KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
+  ),
+  [FUN_L] = LAYOUT_ergodox_pretty(
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_F10,         KC_F11,      KC_F12,            KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_F7,          KC_F8,       KC_F9,             KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                     /**/                    KC_TRNS,       KC_F4,          KC_F5,       KC_F6,             KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_F1,          KC_F2,       KC_F3,             KC_TRNS,        KC_TRNS,
+    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                   KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
+                                                                                                              /**/
+                                                                                          KC_TRNS,   KC_TRNS, /**/ KC_TRNS, KC_TRNS,
+                                                                                                     KC_TRNS, /**/ KC_TRNS,
+                                                                                   KC_TRNS, KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
   ),
 };
 
