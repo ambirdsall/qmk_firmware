@@ -34,10 +34,10 @@
 #define MUTE KC_AUDIO_MUTE
 
 enum layers {
-    BASE_L, // "Base layer" feels pretty self-explanatory, tbh
-    SYM_L,  // As does "Symbol layer" does what it says on the tin, but also offers a numpad
-    NAV_L,  // Because life is too short *not* to bake hardware support for H/J/K/L into a "Navigation layer"
-    EMOU_L, // ngl, the "Emoji layer" is half-baked *at best*. It doesn't even have emojis???
+    BASE_L, // Home base: this is where the magic (i.e. standard typing and top-level layer selection) happens
+    SYM_L,  // "Symbol layer" does what it says on the tin, but also offers a numpad
+    NAV_L,  // Life is too short *not* to add hardware support for using H/J/K/L as arrow keys
+    EMOU_L, // Aspirationally short for "emojis + mouse". It doesn't even have emojis tho smh
     PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
     VOL_L,  // the assumption behind naming this "Volume layer" is that those are the media control keys I'll use most
     NUM_L,  // "Num{ber,pad} layer"
