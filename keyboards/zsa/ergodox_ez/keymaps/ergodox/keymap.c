@@ -172,6 +172,39 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+void red_light(void) {
+  ergodox_right_led_1_on();
+}
+
+void green_light(void) {
+  ergodox_right_led_2_on();
+}
+
+void blue_light(void) {
+  ergodox_right_led_3_on();
+}
+
+void yellow_light(void) {
+  red_light();
+  green_light();
+}
+
+void magenta_light(void) {
+  red_light();
+  blue_light();
+}
+
+void aqua_light(void) {
+  green_light();
+  blue_light();
+}
+
+void white_light(void) {
+  red_light();
+  green_light();
+  blue_light();
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
   uint8_t layer = biton32(state);
   ergodox_board_led_off();
@@ -179,31 +212,36 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
   switch (layer) {
-    case SYM_L:
-      ergodox_right_led_1_on();
-      break;
-    case NAV_L:
-      ergodox_right_led_2_on();
-      break;
-    case EMOU_L:
-      ergodox_right_led_3_on();
-      break;
+    // non-default input layers
     case PRO_L:
-      ergodox_right_led_1_on();
-      ergodox_right_led_2_on();
+      yellow_light();
       break;
-    case VOL_L:
-      ergodox_right_led_1_on();
-      ergodox_right_led_3_on();
+    case SYM_L:
+      white_light();
       break;
     case NUM_L:
-      ergodox_right_led_2_on();
-      ergodox_right_led_3_on();
+      white_light();
       break;
+
+    // navigating by arrow or mouse
+    case NAV_L:
+      green_light();
+      break;
+    case EMOU_L:
+      aqua_light();
+      break;
+
+    case VOL_L:
+      blue_light();
+      break;
+
     case FUN_L:
-      ergodox_right_led_1_on();
-      ergodox_right_led_2_on();
-      ergodox_right_led_3_on();
+      magenta_light();
+      break;
+
+    // i get to pretend i am scary
+    case SYST_L:
+      red_light();
       break;
     default:
       break;
