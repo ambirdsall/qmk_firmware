@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,       KC_TRNS,        /**/    KC_TRNS,        KC_F6,       KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
     KC_TRNS,           KC_EXLM,      KC_AT,          KC_LBRC,      KC_RBRC,      KC_PIPE,     KC_TRNS,        /**/    KC_TRNS,        KC_UP,       KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
     KC_TRNS,           KC_HASH,      KC_DLR,         KC_LCBR,      KC_RCBR,      KC_MINUS,                    /**/                    KC_DOWN,     KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
-    KC_TRNS,           KC_PERC,      KC_CIRC,        KC_LPRN,      KC_RPRN,      KC_EQUAL,    KC_TRNS,        /**/    KC_TRNS,        KC_0,        KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
+    KC_TRNS,           KC_PERC,      KC_SLASH,       KC_LT,        KC_GT,        KC_EQUAL,    KC_TRNS,        /**/    KC_TRNS,        KC_0,        KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
     KC_TRNS,           KC_TILD,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                 KC_DOT,       KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
                                                                                                               /**/
                                                                                             KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS,
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
   [PRO_L] = LAYOUT_ergodox_pretty(
     KC_ESCAPE,         KC_F1,        KC_F2,          KC_F3,        KC_F4,        KC_F5,    KC_TRNS,           /**/   KC_TRNS,        KC_F6,          KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
-    KC_TILD,           KC_LCBR,      KC_DQT,         KC_GRAVE,     KC_RCBR,      KC_QUES,  KC_TRNS,           /**/   KC_TRNS,        KC_UP,          KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
+    KC_TILD,           KC_LCBR,      KC_PERC,        KC_GRAVE,     KC_RCBR,      KC_QUES,  KC_TRNS,           /**/   KC_TRNS,        KC_UP,          KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
     KC_HASH,           KC_CIRC,      KC_EQUAL,       KC_UNDERSCORE,KC_DOLLAR,    KC_ASTERISK,                 /**/                   KC_DOWN,        KC_4,         KC_5,         KC_6,         KC_PLUS,           KC_TRNS,
     KC_EXLM,           KC_LT,        KC_PIPE,        KC_MINUS,     KC_GT,        KC_SLASH, KC_TRNS,           /**/   KC_TRNS,        KC_0,           KC_1,         KC_2,         KC_3,         KC_BSLS,           KC_TRNS,
     KC_TRNS,           KC_COMMA,     KC_AMPR,        KC_PLUS,      KC_SCLN,                                   /**/                                   KC_DOT,       KC_DOT,       KC_0,         KC_EQUAL,          KC_TRNS,
