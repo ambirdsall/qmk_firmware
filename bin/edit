@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+main(){
+  local root
+  root="$(dirname $(dirname $BASH_SOURCE[0]))"
+
+  $HOME/bin/qed $root/keyboards/zsa/ergodox_ez/keymaps/ergodox/keymap.c
+}
+
+main "$@"
