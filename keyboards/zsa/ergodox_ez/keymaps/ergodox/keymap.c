@@ -37,10 +37,10 @@
 
 enum layers {
     BASE_L, // Home base: this is where the magic (i.e. standard typing and top-level layer selection) happens
+    PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
     SYM_L,  // "Symbol layer" does what it says on the tin, but also offers a numpad
     NAV_L,  // Life is too short *not* to add hardware support for using H/J/K/L as arrow keys
     EMOU_L, // Aspirationally short for "emojis + mouse". It doesn't even have emojis tho smh
-    PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
     VOL_L,  // the assumption behind naming this "Volume layer" is that those are the media control keys I'll use most
     NUM_L,  // "Num{ber,pad} layer"
     FUN_L,  // "Function [key] layer" is like a numpad, but for F1, F2, F3, et al
@@ -75,6 +75,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                      KC_END,  /**/  KC_PGUP,
                                                             SYM(KC_SPACE),   NAV(KC_ENTER), ALT_T(KC_MINUS),  /**/  RALT_T(KC_EQUAL),  NAV(KC_ENTER),   PRO(KC_SPACE)
   ),
+  // PRO :: "programming"? An alternate symbol layer I'm trying out, with hopes it will fully supercede SYM someday.
+  // Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
+  [PRO_L] = LAYOUT_ergodox_pretty(
+    KC_ESCAPE, KC_F1,    KC_F2,    KC_F3,         KC_F4,     KC_F5,        _,   /**/   _,              KC_F6,          KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
+    KC_TILD,   KC_LCBR,  KC_AMPR,  KC_PERC,       KC_RCBR,   KC_QUES,      _,   /**/   _,              KC_UP,          KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
+    KC_HASH,   KC_CIRC,  KC_EQUAL, KC_UNDERSCORE, KC_DOLLAR, KC_ASTERISK,       /**/                   KC_DOWN,        KC_4,         KC_5,         KC_6,         KC_PLUS,           _,
+    KC_EXLM,   KC_LT,    KC_PIPE,  KC_MINUS,      KC_GT,     KC_SLASH,     _,   /**/   _,              KC_0,           KC_1,         KC_2,         KC_3,         KC_SLSH,           _,
+    _,         KC_COMMA, KC_GRAVE, KC_PLUS,       KC_SCLN,                      /**/                                   KC_DOT,       KC_DOT,       KC_0,         KC_EQUAL,          _,
+                                                                                /**/
+                                                                      _,    _,  /**/  _,    _,
+                                                                            _,  /**/  _,
+                                                 SFT_T(KC_MINUS), KC_EQUAL, _,  /**/  _,    RGB_HUD, SFT_T(KC_UNDERSCORE)
+  ),
   [SYM_L] = LAYOUT_ergodox_pretty(
     _,  KC_F1,    KC_F2,     KC_F3,    KC_F4,    KC_F5,       _,         /**/    _,  KC_F6,    KC_F7,   KC_F8,   KC_F9,  KC_F10,    KC_F11,
     _,  KC_EXLM,  KC_AT,     KC_LBRC,  KC_RBRC,  KC_PIPE,     _,         /**/    _,  KC_UP,    KC_7,    KC_8,    KC_9,   KC_ASTR,   KC_F12,
@@ -107,19 +120,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                               _,       _,    /**/  _,    _,
                                        _,    /**/  _,
       GUI_T(KC_TAB), GUI_T(KC_GRAVE),  _,    /**/  _,    _,    KC_WWW_BACK
-  ),
-  // PRO :: "programming"? An alternate symbol layer I'm trying out, with hopes it will fully supercede SYM someday.
-  // Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
-  [PRO_L] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE, KC_F1,    KC_F2,    KC_F3,         KC_F4,     KC_F5,        _,   /**/   _,              KC_F6,          KC_F7,        KC_F8,        KC_F9,        KC_F10,            KC_F11,
-    KC_TILD,   KC_LCBR,  KC_AMPR,  KC_PERC,       KC_RCBR,   KC_QUES,      _,   /**/   _,              KC_UP,          KC_7,         KC_8,         KC_9,         KC_ASTR,           KC_F12,
-    KC_HASH,   KC_CIRC,  KC_EQUAL, KC_UNDERSCORE, KC_DOLLAR, KC_ASTERISK,       /**/                   KC_DOWN,        KC_4,         KC_5,         KC_6,         KC_PLUS,           _,
-    KC_EXLM,   KC_LT,    KC_PIPE,  KC_MINUS,      KC_GT,     KC_SLASH,     _,   /**/   _,              KC_0,           KC_1,         KC_2,         KC_3,         KC_SLSH,           _,
-    _,         KC_COMMA, KC_GRAVE, KC_PLUS,       KC_SCLN,                      /**/                                   KC_DOT,       KC_DOT,       KC_0,         KC_EQUAL,          _,
-                                                                                /**/
-                                                                      _,    _,  /**/  _,    _,
-                                                                            _,  /**/  _,
-                                                 SFT_T(KC_MINUS), KC_EQUAL, _,  /**/  _,    RGB_HUD, SFT_T(KC_UNDERSCORE)
   ),
   [VOL_L] = LAYOUT_ergodox_pretty(
     _,    _,    _,    _,    _,    _,    _,    /**/   _,    _,       _,        _,      _,       _,    _,
