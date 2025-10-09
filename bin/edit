@@ -2,9 +2,10 @@
 
 main(){
   local root
-  root="$(dirname $(dirname $BASH_SOURCE[0]))"
+  # shellcheck disable=SC2046 disable=SC2086
+  root="$(dirname $(dirname ${BASH_SOURCE[0]}))"
 
-  $HOME/bin/qed $root/keyboards/zsa/ergodox_ez/keymaps/ergodox/keymap.c
+  ${EDITOR} "$root/keyboards/zsa/ergodox_ez/keymaps/ergodox/keymap.c"
 }
 
 main "$@"
