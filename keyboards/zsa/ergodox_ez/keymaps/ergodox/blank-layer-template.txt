@@ -1,11 +1,11 @@
   [BLANK_L] = LAYOUT_ergodox_pretty(
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,                     /**/                    KC_TRNS,       KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,      KC_TRNS,   KC_TRNS,          /**/    KC_TRNS,        KC_TRNS,       KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
-    KC_TRNS,           KC_TRNS,      KC_TRNS,        KC_TRNS,      KC_TRNS,                                   /**/                                   KC_TRNS,        KC_TRNS,     KC_TRNS,           KC_TRNS,        KC_TRNS,
-                                                                                                              /**/
-                                                                                          KC_TRNS,   KC_TRNS, /**/ KC_TRNS, KC_TRNS,
-                                                                                                     KC_TRNS, /**/ KC_TRNS,
-                                                                                   KC_TRNS, KC_TRNS, KC_TRNS, /**/ KC_TRNS, KC_TRNS, KC_TRNS
+    _, _, _, _, _, _, _,   /**/   _, _, _, _, _, _, _,
+    _, _, _, _, _, _, _,   /**/   _, _, _, _, _, _, _,
+    _, _, _, _, _, _,      /**/      _, _, _, _, _, _,
+    _, _, _, _, _, _, _,   /**/   _, _, _, _, _, _, _,
+    _, _, _, _, _,         /**/         _, _, _, _, _,
+                           /**/
+                     _, _, /**/ _, _,
+                        _, /**/ _,
+                  _, _, _, /**/ _, _, _
   ),
