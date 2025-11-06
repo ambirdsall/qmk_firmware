@@ -39,6 +39,7 @@ enum layers {
     BASE_L, // Home base: this is where the magic (i.e. standard typing and top-level layer selection) happens
     PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
     SYM_L,  // "Symbol layer", the O.G. Lowkey shit, but it's MY shit dang it.
+    BRK_L,  // Brackets. Sweet, sweet brackets. Curly, straight, angled, parens, can't get enough of them.
     NAV_L,  // Life is too short *not* to add hardware support for using H/J/K/L as arrow keys
     EMOU_L, // Aspirationally short for "emojis + mouse". It doesn't even have emojis tho smh
     VOL_L,  // the assumption behind naming this "Volume layer" is that those are the media control keys I'll use most
@@ -47,10 +48,11 @@ enum layers {
     SYST_L, // "System layer" for firmware metashenanigans. Flashing, rebooting, maybe someday the rest of the iceberg.
 };
 
+#define PRO(kc) LT(PRO_L,kc)
 #define SYM(kc) LT(SYM_L,kc)
+#define BRK(kc) LT(BRK_L,kc)
 #define NAV(kc) LT(NAV_L,kc)
 #define EMOU(kc) LT(EMOU_L,kc)
-#define PRO(kc) LT(PRO_L,kc)
 #define VOL(kc) LT(VOL_L,kc)
 #define NUM(kc) LT(NUM_L,kc)
 #define FUN(kc) LT(FUN_L,kc)
@@ -68,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,          KC_1,         KC_2,           KC_3,         KC_4,         KC_5,        ALT_T(KC_LEFT), /**/   RALT_T(KC_RIGHT), KC_6,      KC_7,         KC_8,         KC_9,         KC_0,              KC_BSPC,
     NAV(KC_TAB),       KC_Q,         KC_W,           KC_E,         KC_R,         KC_T,        KC_HOME,        /**/   KC_PGUP,          KC_Y,      KC_U,         KC_I,         KC_O,         KC_P,              KC_BSLS,
     CTL_T(KC_ESCAPE),  CTL_T(KC_A),  ALT_T(KC_S),    GUI_T(KC_D),  SFT_T(KC_F),  KC_G,                        /**/                     KC_H,      SFT_T(KC_J),  GUI_T(KC_K),  ALT_T(KC_L),  CTL_T(KC_SCLN),    KC_QUOTE,
-    SC_LSPO,           EMOU(KC_Z),   FUN(KC_X),      NUM(KC_C),    VOL(KC_V),    KC_B,        KC_END,         /**/   KC_PGDN,          KC_N,      PRO(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    SC_RSPC,
+    SC_LSPO,           EMOU(KC_Z),   FUN(KC_X),      NUM(KC_C),    VOL(KC_V),    BRK(KC_B),   KC_END,         /**/   KC_PGDN,          KC_N,      PRO(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    SC_RSPC,
     SYST(KC_GRAVE),    KC_QUOTE,     KC_PSCR,        KC_LEFT,      KC_RIGHT,                                  /**/                                KC_UP,        KC_DOWN,      KC_LBRC,      KC_RBRC,           MO(SYM_L),
                                                                                                               /**/
                                                                                    ALT_T(KC_LEFT), KC_RIGHT,  /**/  KC_DOWN, MO(SYM_L),
@@ -98,6 +100,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                _,    _,  /**/  _,    _,
                                                                      _,  /**/  _,
                                           SFT_T(KC_MINUS), KC_EQUAL, _,  /**/  _,    RGB_HUD, SFT_T(KC_UNDERSCORE)
+  ),
+  [BRK_L] = LAYOUT_ergodox_pretty(
+    _, _, _, _, _, _, _,   /**/   _, _, KC_LPRN, KC_RPRN, _, _, _,
+    _, _, _, _, _, _, _,   /**/   _, _, KC_LBRC, KC_RBRC, _, _, _,
+    _, _, _, _, _, _,      /**/      _, KC_LCBR, KC_RCBR, _, _, _,
+    _, _, _, _, _, _, _,   /**/   _, _, KC_LT,   KC_GT, _, _, _,
+    _, _, _, _, _,         /**/         _,       _, _, _, _,
+                           /**/
+                     _, _, /**/ _, _,
+                        _, /**/ _,
+                  _, _, _, /**/ _, _, _
   ),
   [NAV_L] = LAYOUT_ergodox_pretty(
     _,    _,    _,    _,         _,         _,        _,         /**/    _,      _,        _,        _,        _,         _,  _,
