@@ -17,8 +17,8 @@
 #define KC_MAC_COPY LGUI(KC_C)
 #define KC_MAC_PASTE LGUI(KC_V)
 
-// I think these are non-us keyboard concerns? Pretty sure I can just go ahead and delete these
-// definitions, but also whatever
+// I think these are non-us keyboard concerns? Pretty sure I can just go ahead and delete
+// these definitions, but also whatever
 #define ES_LESS_MAC KC_GRAVE
 #define ES_GRTR_MAC LSFT(KC_GRAVE)
 #define ES_BSLS_MAC ALGR(KC_6)
@@ -38,7 +38,7 @@
 enum layers {
     BASE_L, // Home base: this is where the magic (i.e. standard typing and top-level layer selection) happens
     PRO_L,  // "Programming layer"; a transitional compromise between the old symbol layer being lowkey shit vs. how deep its muscle memory goes
-    SYM_L,  // "Symbol layer" does what it says on the tin, but also offers a numpad
+    SYM_L,  // "Symbol layer", the O.G. Lowkey shit, but it's MY shit dang it.
     NAV_L,  // Life is too short *not* to add hardware support for using H/J/K/L as arrow keys
     EMOU_L, // Aspirationally short for "emojis + mouse". It doesn't even have emojis tho smh
     VOL_L,  // the assumption behind naming this "Volume layer" is that those are the media control keys I'll use most
@@ -250,4 +250,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   }
   return state;
 };
-
