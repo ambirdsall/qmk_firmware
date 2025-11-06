@@ -73,9 +73,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     SC_LSPO,           EMOU(KC_Z),   FUN(KC_X),      NUM(KC_C),    VOL(KC_V),    BRK(KC_B),   KC_END,         /**/   KC_PGDN,          KC_N,      PRO(KC_M),    SYM(KC_COMMA),KC_DOT,       EMOU(KC_SLASH),    SC_RSPC,
     SYST(KC_GRAVE),    KC_QUOTE,     KC_PSCR,        KC_LEFT,      KC_RIGHT,                                  /**/                                KC_UP,        KC_DOWN,      KC_LBRC,      KC_RBRC,           MO(SYM_L),
                                                                                                               /**/
-                                                                                   ALT_T(KC_LEFT), KC_RIGHT,  /**/  KC_DOWN, MO(SYM_L),
+                                                                                   ALT_T(KC_LEFT), KC_RIGHT,  /**/  KC_DOWN, MO(NAV_L),
                                                                                                      KC_END,  /**/  KC_PGUP,
-                                                            SYM(KC_SPACE),   NAV(KC_ENTER), ALT_T(KC_MINUS),  /**/  RALT_T(KC_EQUAL),  NAV(KC_ENTER),   PRO(KC_SPACE)
+                                                            PRO(KC_SPACE),   SYM(KC_ENTER), ALT_T(KC_MINUS),  /**/  RALT_T(KC_EQUAL),  SYM(KC_ENTER),   PRO(KC_SPACE)
   ),
   // PRO :: "programming"? An alternate symbol layer I'm trying out, with hopes it will fully supercede SYM someday.
   // Based on https://getreuer.info/posts/keyboards/symbol-layer/index.html#sunakus-symbol-layer
