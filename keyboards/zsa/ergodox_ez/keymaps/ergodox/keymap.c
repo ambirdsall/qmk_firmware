@@ -115,15 +115,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   _, _, _, /**/ _, _, _
   ),
   [NAV_L] = LAYOUT_ergodox_pretty(
-    _,    _,    _,    _,         _,         _,        _,         /**/    _,      _,        _,        _,        _,         _,  _,
-    _,    _,    _,    _,         _,         _,        _,         /**/    TO(3),  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,    _,  _,
-    _,    _,    _,    DLT_WORD,  FWD_WORD,  _,                   /**/            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  _,  _,
-    _,    _,    _,    _,         _,         BK_WORD,  _,         /**/    _,      BK_WORD,  _,        _,        FWD_WORD,  _,  _,
-    _,    _,    _,    _,         _,                              /**/                      _,        _,        _,         _,  _,
+    _, _,       _,       _,        _,         _,        _,       /**/    _,      _,        _,        _,        _,         _,  _,
+    _, KC_LCTL, KC_LALT, KC_LGUI,  KC_LSFT,   _,        _,       /**/    TO(3),  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,    _,  _,
+    _, _,       _,       DLT_WORD, FWD_WORD,  _,                 /**/            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  _,  _,
+    _, _,       _,       _,         _,        BK_WORD,  _,       /**/    _,      BK_WORD,  _,        _,        FWD_WORD,  _,  _,
+    _, _,       _,       _,         _,                           /**/                      _,        _,        _,         _,  _,
                                                                  /**/
-                                                       _,    _,  /**/  _,    _,
+                                                        _,   _,  /**/  _,    _,
                                                              _,  /**/  _,
-                                                 _,    _,    _,  /**/  _,    _,    _
+                                                 _,     _,   _,  /**/  _,    _,    _
   ),
   [EMOU_L] = LAYOUT_ergodox_pretty(
     _,    _,    _,    _,    _,    _,    _,   /**/    _,    _,             _,             _,           _,              _,          _,
