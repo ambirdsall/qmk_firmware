@@ -4,6 +4,8 @@
 #define NO_PIPE_ALT KC_GRAVE
 #define NO_BSLS_ALT KC_EQUAL
 
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
 // model of double mod layer tap: shift+alt when held or `kc` when tapped
 #define LSA_T(kc) MT(MOD_LSFT | MOD_LALT, kc)
 
